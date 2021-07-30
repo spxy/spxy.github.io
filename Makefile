@@ -88,7 +88,7 @@ site:
 	@echo Generating website ...
 	rm -rf _site/
 	mkdir _site/
-	cp -R index.html css _site/
+	cp -R index.html css live _site/
 	@echo Done; echo
 
 pull:
