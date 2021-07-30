@@ -8,7 +8,7 @@ help:
 	@echo
 	@echo 'Publish targets:'
 	@echo '  pub     Invoke all publish targets.'
-	@echo '  web     Publish website on susam.in.'
+	@echo '  web     Publish website on own server.'
 	@echo '  gh      Publish website on GitHub Pages.'
 	@echo
 	@echo 'High-level targets:'

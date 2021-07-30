@@ -1,0 +1,33 @@
+# https://example.com/
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    server_name spxy.org spxy;
+
+    ssl_certificate /etc/letsencrypt/live/spxy.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/spxy.org/privkey.pem;
+
+    root /var/www/spxy.org;
+}
+
+# https://www.example.com/ => https://example.com/
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    server_name www.spxy.org;
+
+    ssl_certificate /etc/letsencrypt/live/spxy.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/spxy.org/privkey.pem;
+
+    return 301 https://spxy.org$request_uri;
+}
+
+# http://example.com/, http://www.example.com/ => https://example.com/
+server {
+    listen 80;
+    listen [::]:80;
+    server_name spxy.org www.spxy.org;
+    return 301 https://spxy.org$request_uri;
+}

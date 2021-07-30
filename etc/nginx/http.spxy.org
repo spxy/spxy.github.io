@@ -1,0 +1,15 @@
+# http://example.com/
+server {
+    listen 80;
+    listen [::]:80;
+    server_name offbeat.org spxy;
+    root /var/www/offbeat.org;
+}
+
+# http://www.example.com/ => http://example.com/
+server {
+    listen 80;
+    listen [::]:80;
+    server_name www.offbeat.org;
+    return 301 http://offbeat.org$request_uri;
+}
