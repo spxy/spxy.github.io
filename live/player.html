@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Video Player</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      html {height: 100%; background: #211}
+      body {box-sizing: border-box; height: 100%; padding: 1em; margin: 0}
+    </style>
+  </head>
+  <body>
+    <div id="twitch-embed"></div>
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+    <script type="text/javascript">
+      new Twitch.Embed("twitch-embed", {
+        width: "100%",
+        height: "100%",
+        channel: "susampal"
+      })
+    </script>
+  </body>
+</html>
